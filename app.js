@@ -82,6 +82,7 @@ document.querySelector('[data-share-referral]')?.addEventListener('click',async(
 
 const motion=document.querySelector('#referral-motion');
 if(motion){
+  motion.src='https://d8j0ntlcm91z4.cloudfront.net/user_3JN4lq7KBj4c3qEQUgSkbrftgrd/hf_20260915_234704_aa92ccb0-d8c9-4445-b002-0962c9e540d0.mp4';
   const motionObserver=new IntersectionObserver(([entry])=>{
     if(entry.isIntersecting&&!matchMedia('(prefers-reduced-motion: reduce)').matches){motion.play().catch(()=>{});}else motion.pause();
   },{threshold:.15});
