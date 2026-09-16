@@ -262,8 +262,8 @@ if(root){
         function resize(){const rect=host.getBoundingClientRect();if(!rect.width||!rect.height)return;renderer.setSize(rect.width,rect.height,false);camera.aspect=rect.width/rect.height;camera.updateProjectionMatrix()}
         const ro=new ResizeObserver(resize);ro.observe(host);resize();
         let visible=true;const io=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting},{threshold:.05});io.observe(host);
-        const clock=new THREE.Clock();const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-        function animate(){requestAnimationFrame(animate);if(!visible)return;const dt=Math.min(.04,clock.getDelta());limbGroup.rotation.y+=(targetRotY-limbGroup.rotation.y)*Math.min(1,dt*7);limbGroup.rotation.x+=(targetRotX-limbGroup.rotation.x)*Math.min(1,dt*7);if(!dragging&&!reduced)targetRotY+=Math.sin(performance.now()*.00027)*.00018;renderer.render(scene,camera)}
+        const clock=new THREE.Clock();const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const coarse=matchMedia('(pointer: coarse)').matches;let lastMobileRender=0;
+        function animate(time=performance.now()){requestAnimationFrame(animate);if(!visible||document.hidden)return;if(coarse&&time-lastMobileRender<33)return;lastMobileRender=time;const dt=Math.min(.04,clock.getDelta());limbGroup.rotation.y+=(targetRotY-limbGroup.rotation.y)*Math.min(1,dt*7);limbGroup.rotation.x+=(targetRotX-limbGroup.rotation.x)*Math.min(1,dt*7);if(!dragging&&!reduced&&!coarse)targetRotY+=Math.sin(performance.now()*.00027)*.00018;renderer.render(scene,camera)}
         animate();
         root.classList.add('cfg-webgl-ready');
         sceneState={rebuildLimb,rebuildDecal,loadTexture,setSkin,setOpacity,renderer,ro,io};

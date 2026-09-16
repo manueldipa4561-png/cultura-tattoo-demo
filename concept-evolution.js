@@ -123,6 +123,8 @@ if(conceptRoot){
         let targetX=-.035,targetY=0;
         let dragging=false,startX=0,startY=0,startRotX=0,startRotY=0;
         const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const coarse=window.matchMedia('(pointer: coarse)').matches;
+        let lastMobileRender=0;
 
         function pointerDown(e){
           dragging=true;host.classList.add('is-dragging');
@@ -159,13 +161,15 @@ if(conceptRoot){
         const io=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;},{threshold:.05});
         io.observe(host);
         const clock=new THREE.Clock();
-        function animate(){
+        function animate(time=performance.now()){
           requestAnimationFrame(animate);
-          if(!visible)return;
+          if(!visible||document.hidden)return;
+          if(coarse&&time-lastMobileRender<33)return;
+          lastMobileRender=time;
           const dt=Math.min(.04,clock.getDelta());
           group.rotation.x+=(targetX-group.rotation.x)*Math.min(1,dt*6);
           group.rotation.y+=(targetY-group.rotation.y)*Math.min(1,dt*6);
-          if(!dragging&&!reduced)group.rotation.y+=Math.sin(performance.now()*.00035)*.00016;
+          if(!dragging&&!reduced&&!coarse)group.rotation.y+=Math.sin(performance.now()*.00035)*.00016;
           meshes.forEach((mesh,index)=>{
             const speed=Math.min(1,dt*5.8);
             mesh.material.opacity+=(mesh.userData.targetOpacity-mesh.material.opacity)*speed;
