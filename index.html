@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="evoluzione.css">
   <link rel="stylesheet" href="share-refine.css">
+  <link rel="stylesheet" href="concept-evolution.css">
   <script src="app.js" defer></script>
+  <script src="concept-evolution.js" type="module"></script>
   <script src="assets/scene.bundle.js" defer></script>
   <script src="referral.js" type="module"></script>
   <script src="share-refine.js" defer></script>
@@ -76,17 +78,36 @@
     </div>
   </section>
 
-  <section class="concept section" id="concept" data-reveal>
+  <section class="concept section concept-evolution" id="concept" data-reveal data-concept-evolution data-stage-0="https://d8j0ntlcm91z4.cloudfront.net/user_3JN4lq7KBj4c3qEQUgSkbrftgrd/hf_20260916_135109_ad7525fd-aa0f-4d21-9c7e-1a42ad3a7f42.png" data-stage-1="https://d8j0ntlcm91z4.cloudfront.net/user_3JN4lq7KBj4c3qEQUgSkbrftgrd/hf_20260916_135151_5f754f1c-9fe1-4e3f-a9a3-02312b377c9e.png" data-stage-2="https://d8j0ntlcm91z4.cloudfront.net/user_3JN4lq7KBj4c3qEQUgSkbrftgrd/hf_20260916_135223_01bfa4e6-8847-4dcf-99b2-01d0f63a4904.png">
     <div class="section-heading">
       <div><p class="eyebrow">02 / ESPLORAZIONE VISIVA</p><h2>Prima della pelle,<br><em>l’immaginazione.</em></h2></div>
-      <p>Traccia, stencil, inchiostro.<br>Tre letture dello stesso concept originale.</p>
+      <p>Traccia, stencil, inchiostro.<br>Un unico concept che evolve davanti a te.</p>
     </div>
-    <div class="concept-grid">
-      <button class="concept-card" data-view="0"><span class="card-top">I. <span>LA TRACCIA ↗</span></span><img src="assets/concept.webp" alt="Versione tenue del concept serpente e crisantemo" width="1200" height="1200" loading="lazy"><span class="card-bottom">L’inizio di un’idea<span>01</span></span></button>
-      <button class="concept-card" data-view="1"><span class="card-top">II. <span>LO STENCIL ↗</span></span><img src="assets/concept.webp" alt="Versione monocromatica del concept" width="1200" height="1200" loading="lazy"><span class="card-bottom">La forma si definisce<span>02</span></span></button>
-      <button class="concept-card" data-view="2"><span class="card-top">III. <span>L’INCHIOSTRO ↗</span></span><img src="assets/concept.webp" alt="Concept completo con accento rosso" width="1200" height="1200" loading="lazy"><span class="card-bottom">Il dettaglio resta<span>03</span></span></button>
+    <div class="concept-lab">
+      <div class="concept-control-panel">
+        <div>
+          <p class="eyebrow">TRE FASI / UN SOLO SEGNO</p>
+          <div class="concept-stage-nav" role="group" aria-label="Fasi del concept interattivo">
+            <button type="button" data-concept-stage="0" aria-pressed="true"><span>01</span><strong>LA TRACCIA</strong><span>IDEA</span></button>
+            <button type="button" data-concept-stage="1" aria-pressed="false"><span>02</span><strong>LO STENCIL</strong><span>STRUTTURA</span></button>
+            <button type="button" data-concept-stage="2" aria-pressed="false"><span>03</span><strong>L’INCHIOSTRO</strong><span>IDENTITÀ</span></button>
+          </div>
+        </div>
+        <div class="concept-stage-copy">
+          <p class="concept-stage-index">FASE 01 / LA TRACCIA</p>
+          <h3 class="concept-stage-title">La traccia</h3>
+          <p class="concept-stage-description" aria-live="polite">Il gesto nasce leggero: proporzioni, direzione e respiro prima che il segno diventi definitivo.</p>
+          <div class="concept-progress" aria-hidden="true"><span></span></div>
+          <button type="button" class="concept-play" data-concept-play aria-pressed="false">Riproduci evoluzione ↗</button>
+        </div>
+      </div>
+      <div class="concept-visual-shell">
+        <div class="concept-3d-host" tabindex="0" aria-label="Concept 3D interattivo. Trascina per inclinare l’opera; usa le frecce sinistra e destra per cambiare fase."></div>
+        <img class="concept-fallback" src="https://d8j0ntlcm91z4.cloudfront.net/user_3JN4lq7KBj4c3qEQUgSkbrftgrd/hf_20260916_135109_ad7525fd-aa0f-4d21-9c7e-1a42ad3a7f42.png" alt="Concept illustrativo — La traccia" loading="lazy">
+        <div class="concept-visual-meta"><span>DRAG — INCLINA / TAP — CAMBIA FASE</span><span>FIG. 02 / EVOLUZIONE</span></div>
+      </div>
     </div>
-    <p class="concept-note">Immagini illustrative generate per questa demo. Non rappresentano tatuaggi eseguiti da Cultura Tattoo Gallery.</p>
+    <p class="concept-note">Visual originali generati per questa demo dopo una ricerca del linguaggio visivo pubblico dello studio. Sono concept illustrativi ispirati a quell’atmosfera e non rappresentano tatuaggi realmente eseguiti da Cultura Tattoo Gallery.</p>
   </section>
 
   <section class="referral section" id="referral" data-referral-stage="0" data-reveal aria-labelledby="referral-title">
@@ -121,6 +142,20 @@
   <section class="contact section" id="contatti" data-reveal>
     <div><p class="eyebrow">04 / INIZIA UNA CONVERSAZIONE</p><h2>Hai un’idea<br><em>in testa?</em><span class="red-dot">●</span></h2><a class="button light" href="https://www.instagram.com/culturatattoogallery/" target="_blank" rel="noopener noreferrer">Scrivi allo studio su Instagram <span>↗</span></a></div>
     <div class="contact-details"><p class="eyebrow">CI TROVI A MONTESILVANO</p><address>Corso Umberto I, 590<br>Montesilvano · Pescara</address><a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Cultura%20Tattoo%20Gallery%20Corso%20Umberto%20I%20590%20Montesilvano" target="_blank" rel="noopener noreferrer">Ottieni indicazioni ↗</a><a class="social" href="https://www.instagram.com/culturatattoogallery/" target="_blank" rel="noopener noreferrer">@culturatattoogallery ↗</a></div>
+  </section>
+
+  <section class="configurator-teaser section" data-reveal aria-labelledby="configurator-teaser-title">
+    <div class="configurator-teaser-copy">
+      <p class="eyebrow">05 / CONFIGURATORE 3D — CONCEPT</p>
+      <h2 id="configurator-teaser-title">Il tuo segno,<br><em>prima della pelle.</em></h2>
+      <p class="configurator-teaser-lead">Scegli la zona, prova uno dei concept della demo o carica un tuo disegno, regola dimensioni e orientamento e osservalo su una superficie 3D interattiva. Un modo più concreto per arrivare alla consulenza con un’idea già visibile.</p>
+      <a class="button" href="configuratore.html">Apri il configuratore 3D <span>↗</span></a>
+    </div>
+    <div class="configurator-preview" aria-hidden="true">
+      <div class="configurator-preview-ring"></div>
+      <div class="configurator-preview-ring"></div>
+      <div class="configurator-preview-card"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JN4lq7KBj4c3qEQUgSkbrftgrd/hf_20260916_135223_01bfa4e6-8847-4dcf-99b2-01d0f63a4904.png" alt=""></div>
+    </div>
   </section>
 </main>
 <footer><div class="footer-brand">CULTURA<span>TATTOO GALLERY</span></div><div><p>Demo dimostrativa realizzata da <a href="https://puntoduestudio.it/" target="_blank" rel="noopener noreferrer">Punto Due Studio</a>.<br>Non è il sito ufficiale dell’attività.</p><a href="#main">Torna all’inizio ↑</a></div></footer>
