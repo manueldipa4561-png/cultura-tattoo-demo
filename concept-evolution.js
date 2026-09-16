@@ -79,7 +79,7 @@ if(conceptRoot){
   if(host&&stageUrls.length===3){
     (async()=>{
       try{
-        const THREE=await import('https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js');
+        const THREE=await import('./assets/three.module.js');
         const scene=new THREE.Scene();
         const camera=new THREE.PerspectiveCamera(34,1,.1,100);
         camera.position.set(0,0,6.1);
