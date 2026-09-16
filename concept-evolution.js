@@ -1,6 +1,6 @@
 const conceptRoot=document.querySelector('[data-concept-evolution]');
 if(conceptRoot){
-  const stageUrls=[conceptRoot.dataset.stage0,conceptRoot.dataset.stage1,conceptRoot.dataset.stage2].filter(Boolean);
+  const stageUrls=[conceptRoot.getAttribute('data-stage-0'),conceptRoot.getAttribute('data-stage-1'),conceptRoot.getAttribute('data-stage-2')].filter(Boolean);
   const buttons=[...conceptRoot.querySelectorAll('[data-concept-stage]')];
   const fallback=conceptRoot.querySelector('.concept-fallback');
   const indexEl=conceptRoot.querySelector('.concept-stage-index');
